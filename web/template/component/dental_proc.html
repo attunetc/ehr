@@ -1,0 +1,19 @@
+  <div class="row" id="dental-proc-${id}">
+  <div class="col-md-8">
+    <div class="form-group">
+      <label for="encounter-dental-proc-${id}">Procedure Code</label>
+      <input type="text" class="form-control form-control-unsaved input-sm dental-proc-typeahead" id="encounter-dental-proc-${id}" placeholder="Procedure Code">
+      <div class="form-control-saved edit-on-select" id="encounter-dental-proc-saved-${id}" contenteditable="true"></div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="encounter-tooth-numbers-${id}">Tooth Numbers</label>
+      <input type="text" class="form-control form-control-unsaved input-sm" id="encounter-tooth-numbers-${id}">
+      <div class="form-control-saved" id="encounter-tooth-numbers-saved-${id}"></div>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <div class="badge badge-danger dental-proc-delete-control" name="${id}"><i class="icon-remove"></i></div>
+  </div>
+</div>

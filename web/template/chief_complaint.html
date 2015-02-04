@@ -1,0 +1,239 @@
+<div class="modal fade" id="modal-chief-complaint" tabindex="-1" role="dialog" aria-labelledby="modal-chief-complaint" aria-hidden="true">
+  <div class="modal-dialog narrow-modal-width">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><i class="icon-exclamation-sign icon-2x"></i> Chief Complaint</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row hidden-xs">
+          <div class="col-md-12">
+            <div id="place_template"></div>
+            <script>
+              (function(){
+                RenderUtil.render('patient_chart_header', {}, function(s) {
+                  $('#place_template').html(s);
+                  loadPatientChartHeaderInfo();
+                });
+              })();
+            </script>
+          </div>
+        </div>
+        <div class="row visible-xs">
+          <div class="panel panel-default chartheader">
+            <div class="panel-body">
+              <div class="col-xs-12">
+                <div class="col-xs-6">
+                  <p class="patient-chart-full-name"></p>
+                  <p><label>Next Appointment:</label><span class="patient-chart-next-appt"></span></p>
+                  <p><label>Sex:</label><span class="patient-chart-gender"></span></p> 
+                  <p><label>Patient Identifier:</label> <span class="patient-chart-mrn"></span></p>
+                  <p><label>DOB:</label><span class="patient-chart-dob"></span></p> 
+                </div>
+                <div id="headshot-div6" class="col-xs-6">
+                  <p><label>Active <i class="icon-check-sign icon-2x"></i></label>
+                  <img src="images/headshot-placeholder.jpg" class="patient-chart-headshot img-responsive img-rounded" alt="Patient Photo"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div id="chief-complaint-list" class="table-responsive"></div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel-top" data-toggle="collapse" data-target="#chief-complaint">
+              Chief Complaint <i class="icon-chevron-down pull-right collapse-arrow"></i>
+            </div>
+            <div id="chief-complaint-outer-panel" class="panel panel-default collapse in">
+              <div id="chief-complaint-panel" class="panel-body">
+            <form role="form" id="patient-cc-panel">
+            <label class="sub-title">Description</label>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <div class="form-control-closed" id="chief-complaint">&nbsp;</div>
+                </div>
+              </div>
+            </div>
+            <label class="sub-title">Occurs When</label>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="col-xs-4">
+                  <div class="form-group">
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="n-a">N/A</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="constant">Constant</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="walking">Walking</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="sitting">Sitting</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="running">Running</label></div>
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="form-group">
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="standing_up">Standing Up</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="laying_down">Laying Down</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="touched">When Touched</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="before_eating">Before Eating</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="after_eating">After Eating</label></div>
+                  </div>
+                </div>
+                <div class="col-xs-4">
+                  <div class="form-group">
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="bending">Bending</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="holding_gripping">Holding/Gripping</label></div>
+                    <div class="checkbox"><label><input type="checkbox" name="occurs-when" value="other">Other-specify</label></div>
+                  </div>
+                  <div class="form-control-closed" id="occurs-other">&nbsp;</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="specific-location">Specific Location</label>
+                  <div class="form-control-closed" id="specific-location">&nbsp;</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <label class="sub-title">How Long/Since When</label>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="col-xs-2">
+                      <div class="form-group text-center">
+                        <label for="hours-since">Hours</label>
+                       <div class="form-control-closed" id="hours-since">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-2">
+                      <div class="form-group text-center">
+                        <label for="days-since">Days</label>
+                       <div class="form-control-closed" id="days-since">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-2">
+                      <div class="form-group text-center">
+                        <label for="weeks-since">Weeks</label>
+                       <div class="form-control-closed" id="weeks-since">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-2">
+                      <div class="form-group text-center">
+                        <label for="months-since">Months</label>
+                       <div class="form-control-closed" id="months-since">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-2">
+                      <div class="form-group text-center">
+                        <label for="years-since">Years</label>
+                       <div class="form-control-closed" id="years-since">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-xs-2">
+                      <div class="form-group text-center">
+                        <label for="how-long-other">Other</label>
+                       <div class="form-control-closed" id="how-long-other">&nbsp;</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label class="sub-title">Pain</label>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label>Pain Scale: <span id="pain-scale-value"></span></label>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label for="pain-type">Pain Type</label>
+                        <div class="form-control-closed" id="pain-type">&nbsp;</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label class="sub-title">Frequency</label>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label for="pain-x-hour">X Hour</label>
+                       <div class="form-control-closed" id="pain-x-hour">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label for="pain-x-day">X Day</label>
+                       <div class="form-control-closed" id="pain-x-day">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label for="pain-x-week">X Week</label>
+                       <div class="form-control-closed" id="pain-x-week">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                        <label for="pain-x-month">X Month</label>
+                       <div class="form-control-closed" id="pain-x-month">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="pain-duration">Duration</label>
+                       <div class="form-control-closed" id="pain-duration">&nbsp;</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <label class="sub-title">Denies</label>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="col-xs-4">
+                      <div class="form-group">
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="n">N</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="v">V</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="d">D</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="ha">HA</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="vision_px">Vision Px</label></div>
+                      </div>
+                    </div>
+                    <div class="col-xs-4">
+                      <div class="form-group">
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="dizziness">Dizziness</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="weakness">Weakness</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="parasthesia">Parasthesia</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="syncope">Syncope</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="pain">Pain</label></div>
+                      </div>
+                    </div>
+                    <div class="col-xs-4">
+                      <div class="form-group">
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="anorexia">Anorexia</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="fatigue">Fatigue</label></div>
+                        <div class="checkbox"><label><input type="checkbox" name="denies" value="other">Other</label></div>
+                      </div>
+                      <input type="text" class="form-control-closed input-sm " id="denies-other">
+                       <div class="form-control-closed" id="denies-other">&nbsp;</div>
+                    </div>
+                  </div>
+                </div>  
+              </div>
+            </div>
+          </form>            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" id="btn-patient-cc-ok" class="btn btn-success btn-lg" data-dismiss="modal">Save</a>
+        <a id="chief-complaint-print" class="btn btn-primary btn-lg">Print</a>
+        <a href="#" id="btn-chief-complaint-ok" class="btn btn-default btn-lg" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>

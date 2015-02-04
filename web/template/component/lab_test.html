@@ -1,0 +1,19 @@
+<div class="row" id="lab-test-${id}">
+  <div class="col-md-8">
+    <div class="form-group">
+      <label for="encounter-lab-test-${id}">Lab Test</label>
+      <input type="text" class="form-control form-control-unsaved input-sm lab-test-typeahead" id="encounter-lab-test-${id}">
+      <div class="form-control-saved edit-on-select" id="encounter-lab-test-saved-${id}" contenteditable="true"></div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="encounter-lab-test-quantity-${id}">Quantity</label>
+      <input type="text" class="form-control form-control-unsaved input-sm" id="encounter-lab-test-quantity-${id}">
+      <div class="form-control-saved" id="encounter-lab-test-quantity-saved-${id}"></div>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <div class="badge badge-danger lab-test-delete-control" name="${id}"><i class="icon-remove"></i></div>
+  </div>
+</div>

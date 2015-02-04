@@ -1,0 +1,21 @@
+{{each(i, item) encounter.drugItems}}
+<div class="row" id="drug-item-${id}">
+  <div class="col-md-8">
+    <div class="form-group">
+      <label for="encounter-drug-item-${id}">Drug Item</label>
+      <input type="text" class="form-control form-control-unsaved input-sm drug-item-typeahead" id="encounter-drug-item-${id}">
+      <div class="form-control-saved edit-on-select" id="encounter-drug-item-saved-${id}" contenteditable="true"></div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <label for="encounter-drug-item-quantity-${id}">Quantity</label>
+      <input type="text" class="form-control form-control-unsaved input-sm" id="encounter-drug-item-quantity-${id}">
+      <div class="form-control-saved" id="encounter-drug-item-quantity-saved-${id}"></div>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <div class="badge badge-danger drug-item-delete-control" name="${id}"><i class="icon-remove"></i></div>
+  </div>
+</div>
+{{/each}}

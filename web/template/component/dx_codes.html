@@ -1,0 +1,14 @@
+{{each(i, item) encounter.dxCodes}}
+<div class="row" id="dx-code-${id}">
+    <div class="col-md-10">
+      <div class="form-group">
+        <label for="encounter-icd10AM-${id}">DX Code</label>
+        <input type="text" class="form-control form-control-unsaved input-sm icd10AM-typeahead" id="encounter-icd10AM-${id}" placeholder="ICD-10 AM Code">
+        <div class="form-control-saved edit-on-select" id="encounter-icd10AM-saved-${id}" contenteditable="true"></div>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <div class="badge badge-danger dx-code-delete-control" name="${id}"><i class="icon-remove"></i></div>
+    </div>
+  </div>                  
+{{/each}}

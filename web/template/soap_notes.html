@@ -1,0 +1,89 @@
+<div class="modal fade" id="modal-soap-notes" tabindex="-1" role="dialog" aria-labelledby="modal-soap-notes" aria-hidden="true">
+  <div class="modal-dialog medium-modal-width">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><i class="icon-h-sign icon-2x"></i> SOAP Notes<h4>
+      </div>
+      <div class="modal-body">
+        <div class="row hidden-xs">
+          <div class="col-md-12">
+            <div id="place_template"></div>
+            <script>
+              (function(){
+                RenderUtil.render('patient_chart_header', {}, function(s) {
+                  $('#place_template').html(s);
+                  loadPatientChartHeaderInfo();
+                });
+              })();
+            </script>
+          </div>
+        </div>
+        <div class="row visible-xs">
+          <div class="panel panel-default chartheader">
+            <div class="panel-body">
+              <div class="col-xs-12">
+                <div class="col-xs-6">
+                  <p class="patient-chart-full-name"></p>
+                  <p><label>Next Appointment:</label><span class="patient-chart-next-appt"></span></p>
+                  <p><label>Sex:</label><span class="patient-chart-gender"></span></p> 
+                  <p><label>Patient Identifier:</label> <span class="patient-chart-mrn"></span></p>
+                  <p><label>DOB:</label><span class="patient-chart-dob"></span></p> 
+                </div>
+                <div id="headshot-div6" class="col-xs-6">
+                  <p><label>Active <i class="icon-check-sign icon-2x"></i></label>
+                  <img src="images/headshot-placeholder.jpg" class="patient-chart-headshot img-responsive img-rounded" alt="Patient Photo"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+          <div id="soap-notes-list" class="table-responsive"></div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel-top" data-toggle="collapse" data-target="#soap-note">
+                SOAP Note <i class="icon-chevron-down pull-right collapse-arrow"></i>
+              </div>
+              <div id="soap-note" class="panel panel-default collapse in">
+                <div id="soap-note-panel" class="panel-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="sub-title">Subjective</label>
+                      <div class="form-group">
+                        <div class="soap-note-field" id="soap-note-subjective"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="sub-title">Objective</label>
+                      <div class="form-group">
+                        <div class="soap-note-field" id="soap-note-objective"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label class="sub-title">Assessment</label>
+                      <div class="form-group">
+                        <div class="soap-note-field" id="soap-note-assessment"></div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label class="sub-title">Plan</label>
+                      <div class="form-group">
+                        <div class="soap-note-field" id="soap-note-plan"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <a id="soap-notes-print" class="btn btn-primary btn-lg" href="#">Print</a>
+        <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
